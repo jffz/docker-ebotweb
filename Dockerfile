@@ -1,7 +1,10 @@
 FROM php:5.6.25-apache
 
+ENV TIMEZONE="Europe/Paris"
+
 RUN mkdir -p /opt/ebot/demos /opt/ebot/logs && a2enmod rewrite && \
     docker-php-ext-install pdo_mysql && \
+    echo 'date.timezone = "${TIMEZONE}"' >> /usr/local/etc/php/conf.d/php.ini && \
     apt-get update && apt-get -y install zip netcat && \
     apt-get clean && \
     rm -rf /var/www/html/* && \
