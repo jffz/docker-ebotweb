@@ -6,7 +6,6 @@ RUN mkdir -p /opt/ebot/demos /opt/ebot/logs && a2enmod rewrite && \
     docker-php-ext-install pdo_mysql && \
     apt-get update && apt-get -y install zip netcat && \
     apt-get clean && \
-    echo "date.timezone = ${TIMEZONE}" > /usr/local/etc/php/conf.d/timezone.ini && \
     rm -rf /var/www/html/* && \
     curl -L https://github.com/deStrO/eBot-CSGO-Web/archive/master.zip >> /tmp/master.zip && \
     unzip -d /var/www/html /tmp/master.zip && \
