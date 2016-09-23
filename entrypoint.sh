@@ -20,6 +20,8 @@ EBOT_ADMIN_USER="${EBOT_ADMIN_USER:-admin}"
 EBOT_ADMIN_PASS="${EBOT_ADMIN_PASS:-password}"
 EBOT_ADMIN_MAIL="${EBOT_ADMIN_MAIL:-admin@ebot}"
 
+echo 'date.timezone = "${TIMEZONE}"' >> /usr/local/etc/php/conf.d/php.ini
+
 # for usage with docker-compose
 while ! nc -z $MYSQL_HOST $MYSQL_PORT; do sleep 3; done
 
@@ -28,8 +30,6 @@ then
     php symfony configure:database "mysql:host=${MYSQL_HOST};dbname=${MYSQL_DB}" $MYSQL_USER $MYSQL_PASS
     php symfony doctrine:insert-sql
     php symfony guard:create-user --is-super-admin admin@ebot $EBOT_ADMIN_USER $EBOT_ADMIN_PASS
-
-    echo 'date.timezone = "${TIMEZONE}"' >> /usr/local/etc/php/conf.d/php.ini
 
     # manage config
     sed -i "s|log_match:.*|log_match: ${LOG_FOLDER}/log_match|" $EBOT_WEB_HOME/config/app_user.yml
