@@ -1,4 +1,6 @@
 #!/bin/bash
+TIMEZONE="${TIMEZONE:-Europe/Paris}"
+
 EBOT_WEB_HOME='/var/www/html'
 
 EBOT_IP="${EBOT_IP:-}"
@@ -25,6 +27,8 @@ then
     php symfony configure:database "mysql:host=${MYSQL_HOST};dbname=${MYSQL_DB}" $MYSQL_USER $MYSQL_PASS
     php symfony doctrine:insert-sql
     php symfony guard:create-user --is-super-admin admin@ebot $EBOT_ADMIN_USER $EBOT_ADMIN_PASS
+
+    echo 'date.timezone = "${TIMEZONE}"' >> /usr/local/etc/php/conf.d/php.ini
 
     # manage config
     sed -i "s|log_match:.*|log_match: ${LOG_FOLDER}/log_match|" $EBOT_WEB_HOME/config/app_user.yml
