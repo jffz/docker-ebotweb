@@ -18,7 +18,7 @@ EBOT_ADMIN_USER="${EBOT_ADMIN_USER:-admin}"
 EBOT_ADMIN_PASS="${EBOT_ADMIN_PASS:-password}"
 
 # for usage with docker-compose
-#while ! nc -z $MYSQL_HOST $MYSQL_PORT; do sleep 3; done
+while ! nc -z $MYSQL_HOST $MYSQL_PORT; do sleep 3; done
 
 if [ ! -f .installed ]
 then
