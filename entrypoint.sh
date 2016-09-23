@@ -18,6 +18,7 @@ LOG_FOLDER="${LOG_FOLDER:-/opt/ebot/logs}"
 
 EBOT_ADMIN_USER="${EBOT_ADMIN_USER:-admin}"
 EBOT_ADMIN_PASS="${EBOT_ADMIN_PASS:-password}"
+EBOT_ADMIN_MAIL="${EBOT_ADMIN_MAIL:-admin@ebot}"
 
 # for usage with docker-compose
 while ! nc -z $MYSQL_HOST $MYSQL_PORT; do sleep 3; done
