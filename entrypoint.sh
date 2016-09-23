@@ -4,21 +4,21 @@ EBOT_WEB_HOME='/var/www/html'
 EBOT_IP="${EBOT_IP:-}"
 EBOT_PORT="${EBOT_PORT:-12360}"
 
-MYSQL_HOST="${MYSQL_HOST:-}"
+MYSQL_HOST="${MYSQL_HOST:-mysql}"
 MYSQL_PORT="${MYSQL_PORT:-3306}"
-MYSQL_USER="${MYSQL_USER:-ebot}"
-MYSQL_PASS="${MYSQL_PASS:-}"
-MYSQL_DB="${MYSQL_DB:-ebot}"
+MYSQL_USER="${MYSQL_USER:-ebotv3}"
+MYSQL_PASS="${MYSQL_PASS:-ebotv3}"
+MYSQL_DB="${MYSQL_DB:-ebotv3}"
 
 DEMO_DOWNLOAD="${DEMO_DOWNLOAD:-true}"
 DEMO_FOLDER="${DEMO_FOLDER:-/opt/ebot/demos}"
 LOG_FOLDER="${LOG_FOLDER:-/opt/ebot/logs}"
 
-EBOT_ADMIN_USER="${EBOT_ADMIN_USER:-}"
-EBOT_ADMIN_PASS="${EBOT_ADMIN_PASS:-}"
+EBOT_ADMIN_USER="${EBOT_ADMIN_USER:-admin}"
+EBOT_ADMIN_PASS="${EBOT_ADMIN_PASS:-password}"
 
 # for usage with docker-compose
-while ! nc -z $MYSQL_HOST $MYSQL_PORT; do sleep 3; done
+#while ! nc -z $MYSQL_HOST $MYSQL_PORT; do sleep 3; done
 
 if [ ! -f .installed ]
 then
