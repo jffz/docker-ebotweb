@@ -1,7 +1,7 @@
 version: '2'
 services:
   ebot:
-    image: toto/ebot
+    image: hsfactory/ebot
     restart: always
     links:
       - "mysql:mysql"
