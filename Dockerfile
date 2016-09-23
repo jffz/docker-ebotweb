@@ -1,6 +1,6 @@
 FROM php:5.6.25-apache
 
-TIMEZONE="Europe/Paris"
+ENV TIMEZONE="Europe/Paris"
 
 RUN mkdir -p /opt/ebot/demos /opt/ebot/logs && a2enmod rewrite && \
     docker-php-ext-install pdo_mysql && \
