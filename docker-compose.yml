@@ -26,6 +26,7 @@ ebot:
     DELAY_READY: 'false'
     NODE_STARTUP_METHOD: 'node'
     TOORNAMENT_PLUGIN_KEY: ''
+    USE_DELAY_END_RECORD: 'true'
 
 ebotweb:
   image: hsfactory/ebotweb
